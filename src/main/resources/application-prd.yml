@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: desafio-dio-api
+  datasource:
+    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
+    username: ${PGUSER}
+    password: ${PGPASSWORD}
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 3600000
+    validationQuery: SELECT 1
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+        boot: TRACE
